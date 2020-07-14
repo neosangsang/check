@@ -26,7 +26,7 @@ public class PolicyHandler{
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverOrdered_ScheduleFix(@Payload Ordered ordered) throws ParseException {
+    public void wheneverOrdered_ScheduleFix(@Payload Ordered ordered) {
 
         if(ordered.isMe()){
 
