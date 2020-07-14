@@ -30,7 +30,7 @@ public class PolicyHandler{
 
         if(ordered.isMe()){
 
-            System.out.println("##### listener ScheduleFix : " + ordered.toJson());
+            //System.out.println("##### listener ScheduleFix : " + ordered.toJson());
 
            /* Check check = new Check();
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
