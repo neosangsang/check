@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 @Service
@@ -33,8 +34,13 @@ public class PolicyHandler{
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
             Date   dateCheckDate       = format.parse ( ordered.getStartYmd());
 
-            check.setCheckDate(format.format(dateCheckDate));
+            Calendar calDateCheckDate = Calendar.getInstance();
+            calDateCheckDate.setTime(dateCheckDate);
+            calDateCheckDate.add(Calendar.MONTH, 1);
+
+            check.setCheckDate(format.format(calDateCheckDate.getTime()));
             check.setOrderId(ordered.getId());
+            check.setStatus("checkRequest");
 
             checkRepository.save(check);
             System.out.println("##### listener ScheduleFix : " + ordered.toJson());
