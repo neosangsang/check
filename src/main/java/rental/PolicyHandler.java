@@ -30,6 +30,8 @@ public class PolicyHandler{
 
         if(ordered.isMe()){
 
+            System.out.println("##### listener ScheduleFix : " + ordered.toJson());
+
             Check check = new Check();
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
             Date   dateCheckDate       = format.parse ( ordered.getStartYmd());
@@ -43,7 +45,7 @@ public class PolicyHandler{
             check.setStatus("checkRequest");
 
             checkRepository.save(check);
-            System.out.println("##### listener ScheduleFix : " + ordered.toJson());
+            //System.out.println("##### listener ScheduleFix : " + ordered.toJson());
         }
     }
 
