@@ -30,11 +30,16 @@ public class PolicyHandler{
 
         if(ordered.isMe()){
 
-            //System.out.println("##### listener ScheduleFix : " + ordered.toJson());
+            System.out.println("##### listener ScheduleFix : " + ordered.toJson());
 
-           /* Check check = new Check();
+           Check check = new Check();
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-            Date   dateCheckDate       = format.parse ( ordered.getStartYmd());
+            Date   dateCheckDate       = null;
+            try {
+                dateCheckDate = format.parse ( ordered.getStartYmd());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
             Calendar calDateCheckDate = Calendar.getInstance();
             calDateCheckDate.setTime(dateCheckDate);
@@ -44,7 +49,7 @@ public class PolicyHandler{
             check.setOrderId(ordered.getId());
             check.setStatus("checkRequest");
 
-            checkRepository.save(check);*/
+            checkRepository.save(check);
             //System.out.println("##### listener ScheduleFix : " + ordered.toJson());
         }
     }
