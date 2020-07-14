@@ -32,7 +32,7 @@ public class PolicyHandler{
 
             System.out.println("##### listener ScheduleFix : " + ordered.toJson());
 
-            Check check = new Check();
+           /* Check check = new Check();
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
             Date   dateCheckDate       = format.parse ( ordered.getStartYmd());
 
@@ -44,7 +44,7 @@ public class PolicyHandler{
             check.setOrderId(ordered.getId());
             check.setStatus("checkRequest");
 
-            checkRepository.save(check);
+            checkRepository.save(check);*/
             //System.out.println("##### listener ScheduleFix : " + ordered.toJson());
         }
     }
