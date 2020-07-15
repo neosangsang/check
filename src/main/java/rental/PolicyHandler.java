@@ -36,7 +36,7 @@ public class PolicyHandler{
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
             Date   dateCheckDate       = null;
             try {
-                dateCheckDate = format.parse ( ordered.getStartYmd());
+                dateCheckDate = format.parse ( ordered.getContractDate());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
