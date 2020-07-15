@@ -24,6 +24,19 @@ public class PolicyHandler{
     public void onStringEventListener(@Payload String eventString){
 
     }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverOrderCanceled_ScheduleCancel(@Payload OrderCanceled orderCanceled){
+
+        if(orderCanceled.isMe()){
+
+            System.out.println("##### listener ScheduleCancel : " + orderCanceled.toJson());
+
+            Check check = checkRepository.findByOrderId(orderCanceled.getId());
+            check.setOrderId(orderCanceled.getId());
+            check.setStatus("canceled");
+            checkRepository.save(check);
+        }
+    }
 
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverOrdered_ScheduleFix(@Payload Ordered ordered) {
